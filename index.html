@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Text Segitiga</title>
+</head>
+<body>
+<h1>Text Segitiga</h1>
+<input type="text" id="inp" name="inp" placeholder="Masukkan Text">
+<button id="btn">Click Me</button><br><br>
+<div id="data"></div>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", () => {
+		function textSegitiga(){
+			let text = document.getElementById('inp').value;
+			let result = "";
+			let x = 0;
+			for (let i = 0; i < text.length; i++) {
+			  x++;
+			  result += text.substring(0, x)+ "<br>";
+			}
+			for (let i = 0; i < text.length; i++) {
+			  x--;
+			  result += text.substring(0, x)+ "<br>";;
+			}
+			document.getElementById('data').innerHTML = result;
+		}
+		document.getElementById("btn").onclick = function(){
+			textSegitiga();
+		};
+			// Execute a function when the user presses a key on the keyboard
+			document.getElementById("inp").addEventListener("keypress", function(event) {
+			  // If the user presses the "Enter" key on the keyboard
+			  if (event.key === "Enter") {
+			    // Cancel the default action, if needed
+			    event.preventDefault();
+			    textSegitiga();
+			  }
+			});
+	});
+</script>
+</body>
+</html>
